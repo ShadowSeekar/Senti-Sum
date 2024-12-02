@@ -10,7 +10,7 @@ pypdf
 tiktoken
 streamlit
 PyPDF2
-
+pyperclip
 tensorflow
 nltk
 scikit-learn

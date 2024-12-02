@@ -95,6 +95,8 @@ def main():
                 
                 st.write(stream_txt(summary))
                 st.success("Summarization Complete")
+                with st.button("📋", key="copy"):
+                    clipboard.copy(full_response)
 
 
 

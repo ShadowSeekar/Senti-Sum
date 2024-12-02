@@ -9,7 +9,7 @@ import torch
 import base64
 import time
 import os
-
+import pyperclip
 
 checkpoint = "MBZUAI/LaMini-Flan-T5-248M"
 tokenizer = T5Tokenizer.from_pretrained(checkpoint)
@@ -93,10 +93,12 @@ def main():
                 with st.spinner('Please wait...'):
                     summary = llm_pipeline(filepath)
                 
-                st.write(stream_txt(summary))
+                a = st.write(stream_txt(summary))
                 st.success("Summarization Complete")
-                with st.button("📋", key="copy"):
-                    clipboard.copy(full_response)
+
+                if st.button("📋", key="copy"):
+                pyperclip.copy(a)
+                st.success('Text copied successfully!')
 
 
 

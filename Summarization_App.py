@@ -97,8 +97,8 @@ def main():
                 st.success("Summarization Complete")
 
                 if st.button("📋", key="copy"):
-                pyperclip.copy(a)
-                st.success('Text copied successfully!')
+                    pyperclip.copy(a)
+                    st.success('Text copied successfully!')
 
 
 

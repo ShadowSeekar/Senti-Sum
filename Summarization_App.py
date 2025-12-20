@@ -46,18 +46,11 @@ def stream_txt(txt):
 @st.cache_data
 
 def displayPDF(file):
-    #if file is not None:
-    pdf_reader = PdfReader(file) # read your PDF file
-    # extract the text data from your PDF file after looping through its pages with the .extract_text() method
+    pdf_reader = PdfReader(file)
     text_data= ""
-    for page in pdf_reader.pages: # for loop method
+    for page in pdf_reader.pages: 
         text_data+= page.extract_text()
     st.write(text_data)
-    
-#    with open(file, "rb") as f:
-#        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-#    pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
-#    st.markdown(pdf_display, unsafe_allow_html=True)
 
 st.set_page_config(layout="wide")
 
@@ -67,7 +60,6 @@ def main():
     st.title("Document Summarization App using Language Model")
     uploaded_file = st.file_uploader("Upload your PDF file", type=['pdf'])
 
-    # Ensure the directory exists
     data_dir = "data"
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
